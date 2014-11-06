@@ -17,6 +17,6 @@ now = float(items[3])
 begin = float(items[1])
 if begin < 0.1:
     sys.exit(-1)
-print round((now - begin)/begin, 3)
+print items[0].strip().split('"')[1].decode('gbk').encode('utf-8'),round((now - begin)/begin, 3)
 
 
