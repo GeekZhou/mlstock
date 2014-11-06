@@ -16,7 +16,7 @@ for i in name:
     rs += (str(i)+':')
     sim_rs = s.ix[i]
     sim_rs = sim_rs.order()
-    neighour = sim_rs[-20:]
+    neighour = sim_rs[:20]
     for k in neighour.index:
         rs += (str(k) + ',')
     print rs
