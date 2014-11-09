@@ -1,6 +1,10 @@
+#!/usr/bin/env python
 import memcache
 import sys
 
+'''
+    input/000001.csv... -> matrix.csv
+'''
 
 for line in sys.stdin:
     rs = ''
@@ -10,13 +14,22 @@ for line in sys.stdin:
     i = 0
     rs = "%s,"%name
     records = f.readlines()
+    '''
+        the days of record must above 90, else it is too sparse
+    '''
     if 90 > len(records):
         continue
     for j in range(1, 90):
         record = records[j]
         record = record.strip()
         record_list = record.split(',')
-        for i in range(1, len(record_list)):
-            rs += record_list[i] + ','
+        '''
+            Date,Open,High,Low,Close,Volume,Adj Close
+        '''
+       # for i in range(1, len(record_list)):
+       #     rs += record_list[i] + ','
+        Open = float(record_list[1])
+        Close = float(record_list[6])
+        rs += str((Open - Close)/Close) + ','
     print rs
     f.close()

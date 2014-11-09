@@ -1,0 +1,1 @@
+sh iter_seed.sh | awk -F ',' '{print $3, $1}' | sort -n -r | head -50 | awk -F';' '{print $2}' |sed -r 's/0+([1-9]+)/\1/g'|./cmd.py './seed.sh @1' |sort |uniq| sort -t","  -n -k3,3 | ./merge.py | ./writekv.py

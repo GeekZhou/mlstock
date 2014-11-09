@@ -6,6 +6,7 @@ import sys
 
 
 name = sys.argv[1]
+num = int(sys.argv[2])
 df = pd.read_csv(name, index_col=0,  header=None)
 name = df.index
 df = scale(df)
@@ -16,7 +17,7 @@ for i in name:
     rs += (str(i)+':')
     sim_rs = s.ix[i]
     sim_rs = sim_rs.order()
-    neighour = sim_rs[:20]
+    neighour = sim_rs[:num]
     for k in neighour.index:
         rs += (str(k) + ',')
     print rs
