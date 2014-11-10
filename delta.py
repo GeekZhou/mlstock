@@ -16,7 +16,7 @@ def delta(id):
     name = items[0].strip().split('"')[1]
     now = float(items[3])
     begin = float(items[2])
-    if begin < 0.1:
+    if begin < 0.1 or now < 0.1:
         return 
     rat = "{:.2%}".format(round((now - begin)/begin, 4))
     return id, name, rat 

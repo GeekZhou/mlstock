@@ -1,2 +1,2 @@
-./sim.py output/matrix.csv 3  > output/neighour.csv 
-cat output/neighour.csv | ./writekv.py
+./sim.py output/deltamatrix.csv 10  > output/deltaneighour.csv 
+cat output/deltaneighour.csv | awk -F ':' '{print "sim_"$1":"$2}'| ./writekv.py

@@ -30,6 +30,6 @@ for line in sys.stdin:
        #     rs += record_list[i] + ','
         Open = float(record_list[1])
         Close = float(record_list[6])
-        rs += str((Open - Close)/Close) + ','
+        rs += str(round((Open - Close)/Close, 6)) + ','
     print rs
     f.close()
