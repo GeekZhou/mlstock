@@ -15,7 +15,8 @@ for i in name:
     rs = ''
     rs += (str(i)+':')
     sim_rs = s.ix[i]
-    sim_rs = sim_rs.order(ascending=False)
+    sim_rs = sim_rs.order()
+    # 0 is the largest sim score
     neighour = sim_rs[:num]
     for k in neighour.keys():
         rs += (str(k) + ',')
